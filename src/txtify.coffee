@@ -3,7 +3,7 @@ transformTools = require 'browserify-transform-tools'
 
 module.exports = transformTools.makeStringTransform 'txtify', {excludeExtensions: ['.ts','.js']}, (content, opts, done) ->
   # chunkPath = opts.config.chunkPath || ''
-  regex = /(\..+)$/gm;
+  regex = /(\.\w+)$/gm;
   ext = regex.exec(opts.file)[1];
   if opts.config.extensions.indexOf(ext) >= 0
     result = null;
